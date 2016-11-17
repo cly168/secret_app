@@ -1,0 +1,20 @@
+<%=@user.name%> <a href='/users/<%=@user.id%>/edit'>Edit Profile</a>
+<%= form_for(@secret) do |f| %>
+	<%= f.label :content, "New Secret" %>
+	<%= f.text_area :content %>
+	<%= f.submit "Create Secret" %>
+<% end %>
+<h2>Secrets </h2>
+<% @user.secrets.each do |secret|%>
+	<%= secret.content %>
+	<%= form_for(secret, method: "delete") do |f| %>
+		<%=f.submit "Delete" %>
+	<% end %>
+<% end %>
+<h2>Secrets Liked </h2>
+<% @secrets_liked.each do |secret| %>
+	<%= secret.content %>
+	<%= secret.likes.count %> likes
+	<br>
+<% end %>
+<a href='/secrets'>Secrets List </a>
