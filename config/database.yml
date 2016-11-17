@@ -17,6 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: ubuntu
   # username: postgres
   # password: password
   password:
